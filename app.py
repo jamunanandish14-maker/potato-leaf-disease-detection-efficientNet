@@ -4,6 +4,9 @@
 # USING EFFICIENTNETB0
 # ==========================================
 
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+
 import streamlit as st
 import numpy as np
 from PIL import Image
@@ -12,7 +15,6 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input
-
 # ==========================================
 # PAGE TITLE
 # ==========================================
@@ -23,8 +25,11 @@ st.write("Upload a potato leaf image to detect disease using EfficientNetB0.")
 # ==========================================
 # LOAD MODEL
 # ==========================================
-model = load_model("potato_efficientnet.keras")
-
+try:
+    model = load_model("potato_efficientnet.keras")
+    st.success("Model Loaded Successfully!")
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 # ==========================================
 # CLASS NAMES
 # ==========================================
