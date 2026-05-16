@@ -3,9 +3,7 @@
 # POTATO LEAF DISEASE DETECTION
 # USING EFFICIENTNETB0
 # ==========================================
-import os
-os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+
 import streamlit as st
 import numpy as np
 from PIL import Image
@@ -25,8 +23,7 @@ st.write("Upload a potato leaf image to detect disease using EfficientNetB0.")
 # ==========================================
 # LOAD MODEL
 # ==========================================
-
-model = load_model("potato_efficientnet_model.h5")
+model = load_model("potato_efficientnet.keras")
 
 # ==========================================
 # CLASS NAMES
