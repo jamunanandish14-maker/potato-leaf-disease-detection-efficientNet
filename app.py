@@ -3,7 +3,8 @@
 # POTATO LEAF DISEASE DETECTION
 # USING EFFICIENTNETB0
 # ==========================================
-
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 import streamlit as st
 import numpy as np
 from PIL import Image
